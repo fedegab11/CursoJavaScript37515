@@ -37,3 +37,38 @@ arreglo_calzado.push(new calzado("ADIDAS","HARDEN VOL.6 'HIGHLIGHTER''",39200,"C
 
 let respuesta = prompt ("Qué quieres hacer? \n A) Ver todos los modelos \n B) Ordenarlos por precio \n C)Buscar por marca \n D) Ver el Stock") ;
 
+if (respuesta == "A"){
+    alert ("Modelos: "+ arreglo_calzado.join(" \n "));
+
+}else if (respuesta == "B"){
+    productos.sort(function(a, b) {
+        var precioA = a.precio;
+        var precioB = b.precio;
+        if (precioA < precioB) {
+          return -1;
+        }
+        if (precioA > precioB) {
+          return 1;
+        }    
+       
+        return 0;
+      });
+     // alert(productos)
+
+}else if(respuesta == "C"){
+    let porMarca = prompt("Ingrese la marca:");
+    
+    if (porMarca in marca){
+        let resultado = calzado.filter(calzado => calzado.marca == porMarca);
+        alert("Productos por marca:"/n + resultado);
+    }else{
+        alert("Lo sentimos, no trabajamos con esa marca. Por favor, ingrese otra marca.");
+        return porMarca;
+    } 
+}else if(respuesta== "D"){
+    
+}else{
+    alert("No ingresaste una opcion válida, intenta de nuevo");
+    return;
+}
+
