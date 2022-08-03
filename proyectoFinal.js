@@ -35,13 +35,38 @@ arreglo_calzado.push(new calzado("JORDAN", "Air Jordan 36 'Black Infrared'",4630
 arreglo_calzado.push(new calzado("ADIDAS", "TRAE YOUNG 1 'PIXELS'",37800,"Negro",2 ));
 arreglo_calzado.push(new calzado("ADIDAS","HARDEN VOL.6 'HIGHLIGHTER''",39200,"Celeste", 1));
 
+
+/*const listarProductos= function(arreglo){
+    for(let i= 0; i < arreglo_calzado.length; i++) { 
+    
+        modelos = modelos + 	arreglo_calzado[i].mostrarDescripcion()+" \n"; 
+  
+        
+     };
+ 
+     
+    alert("Modelos: \n" + modelos); 
+}
+*/
+
 let respuesta = prompt ("Qué quieres hacer? \n A) Ver todos los modelos \n B) Ordenarlos por precio \n C)Buscar por marca \n D) Ver el Stock") ;
 
 if (respuesta == "A"){
-    alert ("Modelos: "+ arreglo_calzado.join(" \n "));
+   /* listarProductos(arreglo_calzado);
+*/
+for(let i= 0; i < arreglo_calzado.length; i++) { 
+    
+    modelos = modelos + 	arreglo_calzado[i].mostrarDescripcion()+" \n"; 
+
+    
+ };
+
+ 
+alert("Modelos: \n" + modelos); 
 
 }else if (respuesta == "B"){
-    productos.sort(function(a, b) {
+    
+    arreglo_calzado.sort(function(a, b) {
         var precioA = a.precio;
         var precioB = b.precio;
         if (precioA < precioB) {
@@ -53,19 +78,21 @@ if (respuesta == "A"){
        
         return 0;
       });
-     // alert(productos)
+     listarProductos(arreglo_calzado);
 
 }else if(respuesta == "C"){
     let porMarca = prompt("Ingrese la marca:");
     
-    if (porMarca in marca){
-        let resultado = calzado.filter(calzado => calzado.marca == porMarca);
-        alert("Productos por marca:"/n + resultado);
-    }else{
-        alert("Lo sentimos, no trabajamos con esa marca. Por favor, ingrese otra marca.");
-        return porMarca;
-    } 
-}else if(respuesta== "D"){
+    
+        const resultado = arreglo_calzado.filter(calzado => calzado.marca == porMarca);
+            if(resultado){
+            alert("Productos por marca:"/n + resultado);
+            }else{
+            alert("Lo sentimos, no trabajamos con esa marca. Por favor, ingrese otra marca.");
+            return porMarca;
+   /* }else if(respuesta== "D"){*/
+
+}
     
 }else{
     alert("No ingresaste una opcion válida, intenta de nuevo");
